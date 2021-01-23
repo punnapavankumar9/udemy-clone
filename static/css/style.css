@@ -168,20 +168,25 @@ a {
   max-height: 300px;
   width: 100vw;
 }
-.card img {
-  width: 100%;
-  margin-left: -5vw;
-  border-radius: 10px;
-  border-top: 1px solid black;
-}
-
 .card {
   margin: 10px;
-  width: 260px;
+  width: 220px;
   height: 300px;
   display: flex;
   flex-direction: column;
 }
+.swiper-container-1 .swiper-slide{
+  margin-left: 10px !important;
+}
+.card *:not(#course-image){
+  margin-left: 5px;
+}
+.card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+
 .card > span {
   padding: 3px;
 }

@@ -1,5 +1,5 @@
 {% extends '../base.html' %}
-{%  load static  %}
+{% load static %}
 {% block title %}
 Udemy By Pavan Kumar
 {% endblock title %}
@@ -66,228 +66,27 @@ Udemy By Pavan Kumar
         </div>
     </div>
     <div class="accordions">
-        <button class="accordion">Django</button>
-        <div class="panel">
-            <div class="external-swiper">
-                <div class="swiper-container-1">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="card">
-                                <img src="{% static 'images/img1.png' %}" alt="img">
-                                <p class="title">2021 Complete Python Bootcamp From Zero to Hero in Python</p>
-                                <span class="author-name">
-                                    Punna pavan kumar
-                                </span>
-                                <span class="price">₹599 <del>₹999</del> </span>
-                                <button class="catagory-type">Bestseller</button>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="card">
-                                <img src="{% static 'images/img1.png' %}" alt="img">
-                                <p class="title">2021 Complete Python Bootcamp From Zero to Hero in Python</p>
-                                <span class="author-name">
-                                    Punna pavan kumar
-                                </span>
-                                <span class="price">₹599 <del>₹999</del> </span>
-                                <button class="catagory-type">Bestseller</button>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="card">
-                                <img src="{% static 'images/img1.png' %}" alt="img">
-                                <p class="title">2021 Complete Python Bootcamp From Zero to Hero in Python</p>
-                                <span class="author-name">
-                                    Punna pavan kumar
-                                </span>
-                                <span class="price">₹599 <del>₹999</del> </span>
-                                <button class="catagory-type">Bestseller</button>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="card">
-                                <img src="{% static 'images/img1.png' %}" alt="img">
-                                <p class="title">2021 Complete Python Bootcamp From Zero to Hero in Python</p>
-                                <span class="author-name">
-                                    Punna pavan kumar
-                                </span>
-                                <span class="price">₹599 <del>₹999</del> </span>
-                                <button class="catagory-type">Bestseller</button>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="card">
-                                <img src="{% static 'images/img1.png' %}" alt="img">
-                                <p class="title">2021 Complete Python Bootcamp From Zero to Hero in Python</p>
-                                <span class="author-name">
-                                    Punna pavan kumar
-                                </span>
-                                <span class="price">₹599 <del>₹999</del> </span>
-                                <button class="catagory-type">Bestseller</button>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="card">
-                                <img src="{% static 'images/img1.png' %}" alt="img">
-                                <p class="title">2021 Complete Python Bootcamp From Zero to Hero in Python</p>
-                                <span class="author-name">
-                                    Punna pavan kumar
-                                </span>
-                                <span class="price">₹599 <del>₹999</del> </span>
-                                <button class="catagory-type">Bestseller</button>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="card">
-                                <img src="{% static 'images/img1.png' %}" alt="img">
-                                <p class="title">2021 Complete Python Bootcamp From Zero to Hero in Python</p>
-                                <span class="author-name">
-                                    Punna pavan kumar
-                                </span>
-                                <span class="price">₹599 <del>₹999</del> </span>
-                                <button class="catagory-type">Bestseller</button>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="card">
-                                <img src="{% static 'images/img1.png' %}" alt="img">
-                                <p class="title">2021 Complete Python Bootcamp From Zero to Hero in Python</p>
-                                <span class="author-name">
-                                    Punna pavan kumar
-                                </span>
-                                <span class="price">₹599 <del>₹999</del> </span>
-                                <button class="catagory-type">Bestseller</button>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="card">
-                                <img src="{% static 'images/img1.png' %}" alt="img">
-                                <p class="title">2021 Complete Python Bootcamp From Zero to Hero in Python</p>
-                                <span class="author-name">
-                                    Punna pavan kumar
-                                </span>
-                                <span class="price">₹599 <del>₹999</del> </span>
-                                <button class="catagory-type">Bestseller</button>
-                            </div>
-                        </div>
-
-                    </div>
-                    <!-- Add Pagination -->
-                    <div class="swiper-pagination"></div>
-
-                    <div class="swiper-button-next-1"></div>
-                    <div class="swiper-button-prev-1"></div>
-                </div>
-            </div>
-        </div>
         <button class="accordion">python</button>
         <div class="panel">
             <div class="external-swiper">
                 <div class="swiper-container-1">
                     <div class="swiper-wrapper">
+                        {% for course in web_development %}
                         <div class="swiper-slide">
                             <div class="card">
-                                <img src="{% static 'images/img1.png' %}" alt="img">
-                                <p class="title">2021 Complete Python Bootcamp From Zero to Hero in Python</p>
+                                <img id="course-image" src="{{  course.course_img.url  }}" alt="img">
+                                <p class="title">{{ course.title }}</p>
                                 <span class="author-name">
-                                    Punna pavan kumar
+                                    {{ course.tutor.username }}
                                 </span>
-                                <span class="price">₹599 <del>₹999</del> </span>
+                                <span class="price">₹{{ course.d_price }} <del>₹{{ course.o_price }}</del> </span>
                                 <button class="catagory-type">Bestseller</button>
                             </div>
                         </div>
-                        <div class="swiper-slide">
-                            <div class="card">
-                                <img src="{% static 'images/img1.png' %}" alt="img">
-                                <p class="title">2021 Complete Python Bootcamp From Zero to Hero in Python</p>
-                                <span class="author-name">
-                                    Punna pavan kumar
-                                </span>
-                                <span class="price">₹599 <del>₹999</del> </span>
-                                <button class="catagory-type">Bestseller</button>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="card">
-                                <img src="{% static 'images/img1.png' %}" alt="img">
-                                <p class="title">2021 Complete Python Bootcamp From Zero to Hero in Python</p>
-                                <span class="author-name">
-                                    Punna pavan kumar
-                                </span>
-                                <span class="price">₹599 <del>₹999</del> </span>
-                                <button class="catagory-type">Bestseller</button>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="card">
-                                <img src="{% static 'images/img1.png' %}" alt="img">
-                                <p class="title">2021 Complete Python Bootcamp From Zero to Hero in Python</p>
-                                <span class="author-name">
-                                    Punna pavan kumar
-                                </span>
-                                <span class="price">₹599 <del>₹999</del> </span>
-                                <button class="catagory-type">Bestseller</button>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="card">
-                                <img src="{% static 'images/img1.png' %}" alt="img">
-                                <p class="title">2021 Complete Python Bootcamp From Zero to Hero in Python</p>
-                                <span class="author-name">
-                                    Punna pavan kumar
-                                </span>
-                                <span class="price">₹599 <del>₹999</del> </span>
-                                <button class="catagory-type">Bestseller</button>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="card">
-                                <img src="{% static 'images/img1.png' %}" alt="img">
-                                <p class="title">2021 Complete Python Bootcamp From Zero to Hero in Python</p>
-                                <span class="author-name">
-                                    Punna pavan kumar
-                                </span>
-                                <span class="price">₹599 <del>₹999</del> </span>
-                                <button class="catagory-type">Bestseller</button>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="card">
-                                <img src="{% static 'images/img1.png' %}" alt="img">
-                                <p class="title">2021 Complete Python Bootcamp From Zero to Hero in Python</p>
-                                <span class="author-name">
-                                    Punna pavan kumar
-                                </span>
-                                <span class="price">₹599 <del>₹999</del> </span>
-                                <button class="catagory-type">Bestseller</button>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="card">
-                                <img src="{% static 'images/img1.png' %}" alt="img">
-                                <p class="title">2021 Complete Python Bootcamp From Zero to Hero in Python</p>
-                                <span class="author-name">
-                                    Punna pavan kumar
-                                </span>
-                                <span class="price">₹599 <del>₹999</del> </span>
-                                <button class="catagory-type">Bestseller</button>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="card">
-                                <img src="{% static 'images/img1.png' %}" alt="img">
-                                <p class="title">2021 Complete Python Bootcamp From Zero to Hero in Python</p>
-                                <span class="author-name">
-                                    Punna pavan kumar
-                                </span>
-                                <span class="price">₹599 <del>₹999</del> </span>
-                                <button class="catagory-type">Bestseller</button>
-                            </div>
-                        </div>
-
+                        {% endfor %}
                     </div>
                     <!-- Add Pagination -->
-                    <div class="swiper-pagination"></div>
+                    <!-- <div class="swiper-pagination"></div> -->
 
                     <div class="swiper-button-next-1"></div>
                     <div class="swiper-button-prev-1"></div>
@@ -311,3 +110,6 @@ Udemy By Pavan Kumar
     </div>
 </div>
 {% endblock content %}
+
+
+

@@ -35,18 +35,46 @@ var swiper = new Swiper('.swiper-container', {
 
 $(document).ready(function(){
   var x = $('#img').css('height');
-  console.log(x)
   $('.img1').css('max-height', x);
   var sc1Width = $( window ).width();
-  
   var swiper1 = new Swiper('.swiper-container-1', {
-    slidesPerView: 1.5,
-    spaceBetween: 30,
-    slidesPerGroup: 1,
+    // spaceBetween: 3,
+    loop:true,
     navigation: {
       nextEl: '.swiper-button-next-1',
       prevEl: '.swiper-button-prev-1',
     },
+    slidesPerGroup: 1,
+    breakpoints: {
+      280: {
+        slidesPerView: 1,
+        spaceBetween: 3,
+        slidesPerGroup: 1,
+      },
+      380: {
+        slidesPerView: 1.8,  
+        spaceBetween: 5,
+        slidesPerGroup: 1,
+      },
+      640: {
+        slidesPerView: 2.8,
+        spaceBetween: 5,
+        slidesPerGroup: 1,
+      },
+      700: {
+        slidesPerView:3.1,
+        spaceBetween:10,
+        slidesPerGroup: 1,
+      },
+      768: {
+        slidesPerView: 3.45,
+        spaceBetween: 10,
+      },
+      1024: {
+        slidesPerView: 4.5,
+        spaceBetween: 10,
+      },
+    }
   });
 
 });

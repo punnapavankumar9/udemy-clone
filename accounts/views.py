@@ -39,9 +39,10 @@ def publicProfileView(request, username):
 def profileView(request):
     if request.method == "POST":
         u_instance = User.objects.get(username=request.user.username)
+        pl_instance, created = ProfileLinks.objects.get_or_create(user_profile=request.user.userprofile)
         u_form = UserUpdateForm(request.POST, instance=u_instance)
         up_form = UserProfileForm(request.POST, instance=request.user.userprofile)
-        pl_form = ProfileLinksForm(request.POST, instance=request.user.userprofile.profilelinks)
+        pl_form = ProfileLinksForm(request.POST, instance=pl_instance)
 
         if u_form.is_valid() and up_form.is_valid() and pl_form.is_valid():
             u_form.save()
@@ -53,9 +54,10 @@ def profileView(request):
     
     else:
         u_instance = User.objects.get(username=request.user.username)
+        pl_instance, created = ProfileLinks.objects.get_or_create(user_profile=request.user.userprofile)
         u_form = UserUpdateForm(instance=u_instance)
         up_form = UserProfileForm(instance=request.user.userprofile)
-        pl_form = ProfileLinksForm(instance=request.user.userprofile.profilelinks)
+        pl_form = ProfileLinksForm(instance=pl_instance)
 
 
         forms = {
